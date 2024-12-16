@@ -5,20 +5,12 @@
 }
 
 body {
-  
-  font-family: Arial, sans-serif;
+  font-family: "Plus Jakarta Sans", sans-serif;
   line-height: 1.6;
-}
-/* Resetting default margin and padding */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
 }
 
 header {
   width: 100%;
-
   padding: 20px;
 }
 
@@ -30,70 +22,77 @@ header {
   width: 100%;
   max-width: 1300px;
   z-index: 1000;
-
-
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 0px;
+  padding: 10px 50px;
 }
 
 .logo img {
   margin-right: 20px;
-  height: 35px; /* Adjust the size as needed */
+  height: 35px;
+  /* Adjust the size as needed */
 }
 
 .nav-links {
- 
   display: flex;
-  gap: 50px; /* Space between the links */
+  gap: 50px;
+  /* Space between the links */
   justify-content: center;
   align-items: center;
-  padding: 5px 20px; /* Adjust padding to control background size */
+  padding: 5px 1px;
+  /* Adjust padding to control background size */
   border-radius: 10px;
-
-  backdrop-filter: blur(5px);
-  width: auto; /* Adjust width as needed */
-  max-width: 600px; /* Optional: Set a max-width */
+  backdrop-filter: blur(50px);
+  width: auto;
+  /* Adjust width as needed */
+  max-width: 600px;
+  /* Optional: Set a max-width */
 }
 
 .nav-links a {
   text-decoration: none;
-  color: #000000; /* Customize color */
-  font-size: 16px; /* Customize font size */
+  color: #000000;
+  /* Customize color */
+  font-size: 19px;
+  /* Customize font size */
+}
+
+.nav-links a:hover {
+  color: #cecece;
 }
 
 .cta-button {
   margin-left: 20px;
-  background-color: #000000; /* Customize button color */
+  background-color: #000000;
+  /* Customize button color */
   color: white;
   border: none;
 
-  font-size: 15px; /* Increase font size */
+  font-size: 15px;
+  /* Increase font size */
   cursor: pointer;
-  border-radius: 50px; /* Rounded corners */
-  display: flex; /* Use flexbox to center content */
-  align-items: center; /* Vertically center the text */
-  justify-content: center; /* Horizontally center the text */
-  width: 160px; /* Auto width based on content */
-  height: 30px; /* Fixed height (optional) */
-  text-align: center; /* Ensures the text is centered if flex doesn't work */
- 
-
+  border-radius: 50px;
+  /* Rounded corners */
+  display: flex;
+  /* Use flexbox to center content */
+  align-items: center;
+  /* Vertically center the text */
+  justify-content: center;
+  /* Horizontally center the text */
+  width: 160px;
+  /* Auto width based on content */
+  height: 30px;
+  /* Fixed height (optional) */
+  text-align: center;
+  /* Ensures the text is centered if flex doesn't work */
 }
 
 .cta-button:hover {
-  background-color: #0056b3; /* Button hover effect */
+  background-color: #cecece;
+  /* Button hover effect */
 }
 
-
-
-
-
-/* Hero Section */
-
-/* Pembungkus latar belakang */
-/* ... gaya CSS lainnya ... */
 .turn-on-text {
   /* ... gaya yang telah dijelaskan sebelumnya ... */
   position: absolute;
@@ -101,7 +100,8 @@ header {
   left: 50%;
   transform: translateX(-50%);
   z-index: 1;
-  color: white; /* Pastikan warna teks kontras dengan latar belakang */
+  color: white;
+  /* Pastikan warna teks kontras dengan latar belakang */
   opacity: 1;
 }
 
@@ -111,15 +111,21 @@ header {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: #676767; /* Warna latar belakang default */
-  transition: background-color 1s ease; /* Efek transisi untuk background-color */
-  z-index: -1; /* Agar berada di belakang konten lainnya */
+  background-color: #676767;
+  /* Warna latar belakang default */
+  transition: background-color 1s ease;
+  /* Efek transisi untuk background-color */
+  z-index: -1;
+  /* Agar berada di belakang konten lainnya */
 }
 
 .Containerlampu {
-  text-align: center;   /* Memusatkan secara horizontal */
-  line-height: 100vh;    /* Memusatkan secara vertikal */
-  position: relative;    /* Tambahkan relative positioning pada container */
+  text-align: center;
+  /* Memusatkan secara horizontal */
+  line-height: 100vh;
+  /* Memusatkan secara vertikal */
+  position: relative;
+  /* Tambahkan relative positioning pada container */
 }
 
 .gambarBlank {
@@ -132,19 +138,12 @@ header {
   width: 100px;
   height: 100px;
   position: absolute;
-  top: 30%;  
+  top: 30%;
   left: 50%;
-  transform: translate(-50%, -200%); /* Menyesuaikan posisi dengan translate */
-  transition: background-image 0.3s ease;  /* Animasi transisi untuk perubahan gambar */
-}
-
-lampuImage {
-  width: 100%;  /* Memastikan gambar memenuhi ukuran overlay */
-  height: 100%;  /* Memastikan gambar memenuhi ukuran overlay */
-  transition: all 0.3s ease;  /* Transisi yang halus saat gambar berubah */
-  position: absolute;  /* Menjaga posisi gambar dalam overlay */
-  top: 0;
-  left: 0;
+  transform: translate(-50%, -200%);
+  /* Menyesuaikan posisi dengan translate */
+  transition: background-image 0.3s ease;
+  /* Animasi transisi untuk perubahan gambar */
 }
 
 .Containerlampu .overlay .lampuImage {
@@ -153,47 +152,44 @@ lampuImage {
 
 /* Saat dihover, gambar akan berubah */
 .overlay .lampuImage:hover {
-  content: url('Image/menyala.svg'); /* Ganti dengan gambar baru */
-  transform: scale(1.1) ; /* Membesarkan dan memutar elemen */
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Menambahkan bayangan saat hover */
-  
- 
+  content: url('Image/Property\ 1=on\ hover.svg');
+  /* Ganti dengan gambar baru */
+  transform: scale(1.1);
+  /* Membesarkan dan memutar elemen */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  /* Menambahkan bayangan saat hover */
+
+
 }
 
 /* CSS untuk menambahkan efek fading */
 .fade {
-  transition: opacity 0.5s ease-in-out; /* Efek transisi selama 0.5 detik */
-  opacity: 0.5; /* Gambar dimulai dengan opacity penuh */
+  transition: opacity 0.5s ease-in-out;
+  /* Efek transisi selama 0.5 detik */
+  opacity: 0.5;
+  /* Gambar dimulai dengan opacity penuh */
 }
 
 .fade.hidden {
-  opacity: 0; /* Mengubah opacity menjadi 0 untuk menyembunyikan elemen */
+  opacity: 0;
+  /* Mengubah opacity menjadi 0 untuk menyembunyikan elemen */
 }
 
 /* Kelas untuk gambar yang muncul dengan efek fading */
-/* Kelas untuk gambar yang muncul dengan efek fading */
 .fade-in {
   opacity: 0;
-  transition: opacity 2s ease-in-out; /* Perpanjang durasi transisi menjadi 2 detik */
+  transition: opacity 2s ease-in-out;
+  /* Perpanjang durasi transisi menjadi 2 detik */
 }
 
 .fade-in.visible {
   opacity: 1;
 }
+
 .fade-in.visible {
   opacity: 1;
   transition: opacity 2s ease-in-out;
 }
-
-
-
-
-
-
-
-
-
-
 
 /* Highlight Section */
 .highlight-section {
@@ -213,60 +209,125 @@ lampuImage {
 }
 
 /* Frame 9 - Light Statement */
-
+.statement-section {
+  width: 100%;
+  max-width: 1200px;
+  /* Atur lebar maksimum */
+  padding: 1px 20px;
+  /* Sesuaikan padding agar fleksibel */
+  margin: 0;
+  /* Pusatkan kontainer */
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  /* Spasi antar elemen, lebih dekat dari sebelumnya */
+  align-items: left;
+  /* Pastikan elemen teks dimulai dari kiri */
+  text-align: left;
+}
 
 .statement-header {
+  width: 100%;
+  padding: 0 50px;
   display: flex;
-  align-items: center;
-  gap: 20px;
+  align-items: left;
+  gap: 5px;
+  /* Jarak antara teks dan gambar, lebih dekat dari sebelumnya */
+  justify-content: flex-start;
+  /* Teks dan gambar dimulai dari kiri */
 }
 
 .statement-image {
   width: 120px;
+  /* Ukuran gambar default */
   height: auto;
   object-fit: cover;
-}
-
-.statement-section {
-  width: 100%;
-  max-width: 100%; /* Menghilangkan batasan max-width agar bisa lebar penuh */
-
-  padding: 50px 70px;
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
+  /* Jaga proporsi gambar */
+  margin-bottom: 30px;
 }
 
 .statement-text {
   font-family: "Plus Jakarta Sans", sans-serif;
   color: #000;
-  font-size: 100px;
+  font-size: 80px;
+  /* Ukuran teks default */
   font-weight: 200;
   line-height: 1.2;
   letter-spacing: -2px;
-  margin: 0;
-  white-space: nowrap; /* Menghindari teks terputus ke baris berikutnya */
-  overflow: hidden; /* Menyembunyikan teks yang melampaui container */
-  text-overflow: ellipsis; /* Menambahkan '...' jika teks terlalu panjang */
+  margin: 0 20px;
+  /* Sesuaikan margin untuk mengurangi jarak atas dan bawah */
+  white-space: nowrap;
+  /* Cegah teks terputus ke baris berikutnya */
+  overflow: hidden;
+  /* Sembunyikan teks berlebih */
+  text-overflow: ellipsis;
+  /* Tambahkan '...' jika teks terlalu panjang */
+  text-align: left;
+  /* Pastikan teks rata kiri */
 }
-
 
 .statement-body,
 .statement-footer {
-  margin: 0;
+  margin-left: 58px;
   font-size: 80px;
+  /* Konsisten dengan header */
   letter-spacing: -2px;
+  text-align: left;
+  /* Pastikan teks rata kiri */
+}
+
+/* Responsivitas */
+@media (max-width: 768px) {
+  .statement-section {
+    padding: 30px 15px;
+  }
+
+  .statement-header {
+    flex-wrap: wrap;
+    /* Elemen akan turun ke baris berikutnya di layar kecil */
+    gap: 5px;
+    /* Kurangi jarak antar elemen */
+  }
+
+  .statement-text {
+    font-size: 60px;
+    /* Perkecil ukuran teks di layar kecil */
+  }
+
+  .statement-image {
+    width: 80px;
+    /* Perkecil gambar di layar kecil */
+  }
+
+  .statement-body,
+  .statement-footer {
+    font-size: 60px;
+    /* Sesuaikan dengan ukuran layar */
+  }
+}
+
+@media (max-width: 480px) {
+  .statement-text {
+    font-size: 40px;
+    /* Ukuran lebih kecil untuk ponsel */
+    letter-spacing: -1px;
+  }
+
+  .statement-image {
+    width: 60px;
+    /* Gambar lebih kecil di layar sempit */
+  }
 }
 
 /* Frame 12 - Mission Statement */
 .mission-section {
   width: 100%;
-  max-width: 100%; /* Menghilangkan batasan max-width agar bisa lebar penuh */
-
-  padding: 50px 70px;
+  max-width: 100%;
+  /* Menghilangkan batasan max-width agar bisa lebar penuh */
+  padding: 50px 105px;
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 10px;
 }
 
 .mission-title {
@@ -282,7 +343,7 @@ lampuImage {
 .mission-content {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 10px;
 }
 
 .mission-description {
@@ -290,7 +351,7 @@ lampuImage {
   color: #000;
   font-size: 80px;
   font-weight: 200;
-  line-height: 1.2;
+  line-height: 1;
   letter-spacing: -2px;
   margin: 0;
 }
@@ -298,35 +359,44 @@ lampuImage {
 .mission-highlight {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 10px;
 }
 
 .mission-text {
   font-family: "Plus Jakarta Sans", sans-serif;
   color: #000;
-  font-size: 100px;
+  font-size: 80px;
   font-weight: 200;
   line-height: 1.2;
   letter-spacing: -2px;
   margin: 0;
-  white-space: nowrap; /* Menghindari teks terputus ke baris berikutnya */
-  overflow: hidden; /* Menyembunyikan teks yang melampaui container */
-  text-overflow: ellipsis; /* Menambahkan '...' jika teks terlalu panjang */
+  white-space: nowrap;
+  /* Menghindari teks terputus ke baris berikutnya */
+  overflow: hidden;
+  /* Menyembunyikan teks yang melampaui container */
+  text-overflow: ellipsis;
+  /* Menambahkan '...' jika teks terlalu panjang */
 }
 
 .mission-image {
   width: 120px;
   height: auto;
   object-fit: cover;
+  margin-bottom: 30px;
 }
 
 /* Frame 21 - Stats & Tagline */
 .stats-section {
   width: 100%;
-
-  padding: 35px 20px;
+  padding: 35px 50px;
   position: relative;
   overflow: hidden;
+  display: flex;
+  /* Menambahkan display flex untuk membuat konten dalam section ini dapat diatur dengan flexbox */
+  flex-direction: column;
+  /* Mengatur arah konten untuk ditampilkan secara vertikal */
+  justify-content: flex-start;
+  /* Mengatur konten untuk ditampilkan di kiri secara vertikal */
 }
 
 .stats-section::before {
@@ -339,7 +409,6 @@ lampuImage {
   background-image: url('Image/Modern Office Interior (1) 1.png');
   background-size: cover;
   background-position: center;
- 
 }
 
 .stats-container {
@@ -350,27 +419,26 @@ lampuImage {
   grid-template-columns: repeat(3, 1fr);
   gap: 10px;
   z-index: 1;
-  margin-left: 120px;
-
-  
-
+  margin-left: 0;
+  /* Menghilangkan margin kiri */
 }
+
 .stat-card {
   background: rgba(255, 255, 255, 0.5);
-  padding: 32px;
+  padding: 16px;
+  /* Mengurangi padding untuk membuat konten lebih dekat dengan card */
   border-radius: 24px;
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.05);
   backdrop-filter: blur(10px);
   display: flex;
   flex-direction: column;
   gap: 8px;
-
-
-
   width: 280px;
+  align-items: flex-start;
+  /* Mengatur konten untuk ditampilkan di kiri secara horizontal */
+  justify-content: flex-start;
+  /* Mengatur konten untuk ditampilkan di kiri secara vertikal */
 }
-
-
 
 .stat-number {
   color: #000;
@@ -380,6 +448,8 @@ lampuImage {
   line-height: 1;
   letter-spacing: -3px;
   margin: 0;
+  text-align: left;
+  /* Mengatur teks untuk ditampilkan di kiri */
 }
 
 .stat-title {
@@ -390,7 +460,10 @@ lampuImage {
   line-height: 1.2;
   letter-spacing: -1px;
   margin: 0;
-  margin-bottom: 16px;
+  margin-bottom: 8px;
+  /* Mengurangi margin bottom untuk membuat konten lebih dekat dengan card */
+  text-align: left;
+  /* Mengatur teks untuk ditampilkan di kiri */
 }
 
 .stat-description {
@@ -401,16 +474,27 @@ lampuImage {
   line-height: 1.5;
   opacity: 0.8;
   margin: 0;
+  text-align: left;
+  /* Mengatur teks untuk ditampilkan di kiri */
 }
 
 .tagline-wrapper {
   position: relative;
   max-width: 1200px;
-  margin: 70px auto 0;
+  margin: 40px auto 0;
+  /* Mengurangi margin top untuk membuat konten lebih dekat dengan card */
   padding: 0 20px;
   z-index: 1;
-  margin-left: 800px;
-
+  margin-left: auto;
+  /* Mengatur margin kiri ke auto untuk membuat konten berada di kanan */
+  margin-right: 0;
+  /* Menghilangkan margin kanan */
+  display: flex;
+  /* Menambahkan display flex untuk membuat konten dalam wrapper ini dapat diatur dengan flexbox */
+  flex-direction: column;
+  /* Mengatur arah konten untuk ditampilkan secara vertikal */
+  justify-content: center;
+  /* Mengatur konten untuk ditampilkan di tengah secara vertikal */
 }
 
 .tagline-description {
@@ -419,9 +503,12 @@ lampuImage {
   font-family: "Plus Jakarta Sans", sans-serif;
   font-weight: 590;
   line-height: 1.5;
-  margin: 0 0 24px 0;
+  margin: 0 0 16px 0;
+  /* Mengurangi margin bottom untuk membuat konten lebih dekat dengan card */
   max-width: 478px;
   opacity: 0.8;
+  text-align: left;
+  /* Mengatur teks untuk ditampilkan di kiri */
 }
 
 .tagline {
@@ -433,6 +520,535 @@ lampuImage {
   letter-spacing: -2px;
   margin: 0;
   max-width: 478px;
+  text-align: left;
+  /* Mengatur teks untuk ditampilkan di kiri */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+}
+
+header {
+  width: 100%;
+
+  padding: 20px;
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 1300px;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 50px;
+}
+
+.logo img {
+  margin-right: 20px;
+  height: 35px;
+  /* Adjust the size as needed */
+}
+
+.nav-links {
+  display: flex;
+  gap: 50px;
+  /* Space between the links */
+  justify-content: center;
+  align-items: center;
+  padding: 5px 1px;
+  /* Adjust padding to control background size */
+  border-radius: 10px;
+  backdrop-filter: blur(50px);
+  width: auto;
+  /* Adjust width as needed */
+  max-width: 600px;
+  /* Optional: Set a max-width */
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #000000;
+  /* Customize color */
+  font-size: 19px;
+  /* Customize font size */
+}
+
+.nav-links a:hover {
+  color: #cecece;
+}
+
+.cta-button {
+  margin-left: 20px;
+  background-color: #000000;
+  /* Customize button color */
+  color: white;
+  border: none;
+
+  font-size: 15px;
+  /* Increase font size */
+  cursor: pointer;
+  border-radius: 50px;
+  /* Rounded corners */
+  display: flex;
+  /* Use flexbox to center content */
+  align-items: center;
+  /* Vertically center the text */
+  justify-content: center;
+  /* Horizontally center the text */
+  width: 160px;
+  /* Auto width based on content */
+  height: 30px;
+  /* Fixed height (optional) */
+  text-align: center;
+  /* Ensures the text is centered if flex doesn't work */
+}
+
+.cta-button:hover {
+  background-color: #cecece;
+  /* Button hover effect */
+}
+
+.turn-on-text {
+  /* ... gaya yang telah dijelaskan sebelumnya ... */
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+  color: white;
+  /* Pastikan warna teks kontras dengan latar belakang */
+  opacity: 1;
+}
+
+#backgroundWrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #676767;
+  /* Warna latar belakang default */
+  transition: background-color 1s ease;
+  /* Efek transisi untuk background-color */
+  z-index: -1;
+  /* Agar berada di belakang konten lainnya */
+}
+
+.Containerlampu {
+  text-align: center;
+  /* Memusatkan secara horizontal */
+  line-height: 100vh;
+  /* Memusatkan secara vertikal */
+  position: relative;
+  /* Tambahkan relative positioning pada container */
+}
+
+.gambarBlank {
+  vertical-align: middle;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.overlay {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -200%);
+  /* Menyesuaikan posisi dengan translate */
+  transition: background-image 0.3s ease;
+  /* Animasi transisi untuk perubahan gambar */
+}
+
+.Containerlampu .overlay .lampuImage {
+  transition: all 0.3s ease;
+}
+
+/* Saat dihover, gambar akan berubah */
+.overlay .lampuImage:hover {
+  content: url('Image/Property\ 1=on\ hover.svg');
+  /* Ganti dengan gambar baru */
+  transform: scale(1.1);
+  /* Membesarkan dan memutar elemen */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  /* Menambahkan bayangan saat hover */
+
+
+}
+
+/* CSS untuk menambahkan efek fading */
+.fade {
+  transition: opacity 0.5s ease-in-out;
+  /* Efek transisi selama 0.5 detik */
+  opacity: 0.5;
+  /* Gambar dimulai dengan opacity penuh */
+}
+
+.fade.hidden {
+  opacity: 0;
+  /* Mengubah opacity menjadi 0 untuk menyembunyikan elemen */
+}
+
+/* Kelas untuk gambar yang muncul dengan efek fading */
+.fade-in {
+  opacity: 0;
+  transition: opacity 2s ease-in-out;
+  /* Perpanjang durasi transisi menjadi 2 detik */
+}
+
+.fade-in.visible {
+  opacity: 1;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transition: opacity 2s ease-in-out;
+}
+
+/* Highlight Section */
+.highlight-section {
+  text-align: center;
+  margin: 40px 20px;
+}
+
+.text-highlight {
+  font-size: 48px;
+  font-weight: 700;
+  color: #000;
+}
+
+.highlight-icon {
+  width: 50px;
+  vertical-align: middle;
+}
+
+/* Frame 9 - Light Statement */
+.statement-section {
+  width: 100%;
+  max-width: 1200px;
+  /* Atur lebar maksimum */
+  padding: 1px 20px;
+  /* Sesuaikan padding agar fleksibel */
+  margin: 0;
+  /* Pusatkan kontainer */
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  /* Spasi antar elemen, lebih dekat dari sebelumnya */
+  align-items: left;
+  /* Pastikan elemen teks dimulai dari kiri */
+  text-align: left;
+}
+
+.statement-header {
+  width: 100%;
+  padding: 0 50px;
+  display: flex;
+  align-items: left;
+  gap: 5px;
+  /* Jarak antara teks dan gambar, lebih dekat dari sebelumnya */
+  justify-content: flex-start;
+  /* Teks dan gambar dimulai dari kiri */
+}
+
+.statement-image {
+  width: 120px;
+  /* Ukuran gambar default */
+  height: auto;
+  object-fit: cover;
+  /* Jaga proporsi gambar */
+  margin-bottom: 30px;
+}
+
+.statement-text {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  color: #000;
+  font-size: 80px;
+  /* Ukuran teks default */
+  font-weight: 200;
+  line-height: 1.2;
+  letter-spacing: -2px;
+  margin: 0 20px;
+  /* Sesuaikan margin untuk mengurangi jarak atas dan bawah */
+  white-space: nowrap;
+  /* Cegah teks terputus ke baris berikutnya */
+  overflow: hidden;
+  /* Sembunyikan teks berlebih */
+  text-overflow: ellipsis;
+  /* Tambahkan '...' jika teks terlalu panjang */
+  text-align: left;
+  /* Pastikan teks rata kiri */
+}
+
+.statement-body,
+.statement-footer {
+  margin-left: 58px;
+  font-size: 80px;
+  /* Konsisten dengan header */
+  letter-spacing: -2px;
+  text-align: left;
+  /* Pastikan teks rata kiri */
+}
+
+/* Responsivitas */
+@media (max-width: 768px) {
+  .statement-section {
+    padding: 30px 15px;
+  }
+
+  .statement-header {
+    flex-wrap: wrap;
+    /* Elemen akan turun ke baris berikutnya di layar kecil */
+    gap: 5px;
+    /* Kurangi jarak antar elemen */
+  }
+
+  .statement-text {
+    font-size: 60px;
+    /* Perkecil ukuran teks di layar kecil */
+  }
+
+  .statement-image {
+    width: 80px;
+    /* Perkecil gambar di layar kecil */
+  }
+
+  .statement-body,
+  .statement-footer {
+    font-size: 60px;
+    /* Sesuaikan dengan ukuran layar */
+  }
+}
+
+@media (max-width: 480px) {
+  .statement-text {
+    font-size: 40px;
+    /* Ukuran lebih kecil untuk ponsel */
+    letter-spacing: -1px;
+  }
+
+  .statement-image {
+    width: 60px;
+    /* Gambar lebih kecil di layar sempit */
+  }
+}
+
+/* Frame 12 - Mission Statement */
+.mission-section {
+  width: 100%;
+  max-width: 100%;
+  /* Menghilangkan batasan max-width agar bisa lebar penuh */
+  padding: 50px 105px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.mission-title {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  color: #000;
+  font-size: 28px;
+  font-weight: 200;
+  letter-spacing: -2px;
+  margin: 0;
+
+}
+
+.mission-content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.mission-description {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  color: #000;
+  font-size: 80px;
+  font-weight: 200;
+  line-height: 1;
+  letter-spacing: -2px;
+  margin: 0;
+}
+
+.mission-highlight {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.mission-text {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  color: #000;
+  font-size: 80px;
+  font-weight: 200;
+  line-height: 1.2;
+  letter-spacing: -2px;
+  margin: 0;
+  white-space: nowrap;
+  /* Menghindari teks terputus ke baris berikutnya */
+  overflow: hidden;
+  /* Menyembunyikan teks yang melampaui container */
+  text-overflow: ellipsis;
+  /* Menambahkan '...' jika teks terlalu panjang */
+}
+
+.mission-image {
+  width: 120px;
+  height: auto;
+  object-fit: cover;
+  margin-bottom: 30px;
+}
+
+/* Frame 21 - Stats & Tagline */
+.stats-section {
+  width: 100%;
+  padding: 35px 50px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  /* Menambahkan display flex untuk membuat konten dalam section ini dapat diatur dengan flexbox */
+  flex-direction: column;
+  /* Mengatur arah konten untuk ditampilkan secara vertikal */
+  justify-content: flex-start;
+  /* Mengatur konten untuk ditampilkan di kiri secara vertikal */
+}
+
+.stats-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('Image/Modern Office Interior (1) 1.png');
+  background-size: cover;
+  background-position: center;
+}
+
+.stats-container {
+  position: relative;
+  max-width: 950px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  z-index: 1;
+  margin-left: 0;
+  /* Menghilangkan margin kiri */
+}
+
+.stat-card {
+  background: rgba(255, 255, 255, 0.5);
+  padding: 16px;
+  /* Mengurangi padding untuk membuat konten lebih dekat dengan card */
+  border-radius: 24px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.05);
+  backdrop-filter: blur(10px);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 280px;
+  align-items: flex-start;
+  /* Mengatur konten untuk ditampilkan di kiri secara horizontal */
+  justify-content: flex-start;
+  /* Mengatur konten untuk ditampilkan di kiri secara vertikal */
+}
+
+.stat-number {
+  color: #000;
+  font-size: 56px;
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -3px;
+  margin: 0;
+  text-align: left;
+  /* Mengatur teks untuk ditampilkan di kiri */
+}
+
+.stat-title {
+  color: #000;
+  font-size: 22px;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: -1px;
+  margin: 0;
+  margin-bottom: 8px;
+  /* Mengurangi margin bottom untuk membuat konten lebih dekat dengan card */
+  text-align: left;
+  /* Mengatur teks untuk ditampilkan di kiri */
+}
+
+.stat-description {
+  color: #000;
+  font-size: 15px;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-weight: 400;
+  line-height: 1.5;
+  opacity: 0.8;
+  margin: 0;
+  text-align: left;
+  /* Mengatur teks untuk ditampilkan di kiri */
+}
+
+.tagline-wrapper {
+  position: relative;
+  max-width: 1200px;
+  margin: 40px auto 0;
+  /* Mengurangi margin top untuk membuat konten lebih dekat dengan card */
+  padding: 0 20px;
+  z-index: 1;
+  margin-left: auto;
+  /* Mengatur margin kiri ke auto untuk membuat konten berada di kanan */
+  margin-right: 0;
+  /* Menghilangkan margin kanan */
+  display: flex;
+  /* Menambahkan display flex untuk membuat konten dalam wrapper ini dapat diatur dengan flexbox */
+  flex-direction: column;
+  /* Mengatur arah konten untuk ditampilkan secara vertikal */
+  justify-content: center;
+  /* Mengatur konten untuk ditampilkan di tengah secara vertikal */
+}
+
+.tagline-description {
+  color: #000;
+  font-size: 15px;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-weight: 590;
+  line-height: 1.5;
+  margin: 0 0 16px 0;
+  /* Mengurangi margin bottom untuk membuat konten lebih dekat dengan card */
+  max-width: 478px;
+  opacity: 0.8;
+  text-align: left;
+  /* Mengatur teks untuk ditampilkan di kiri */
+}
+
+.tagline {
+  color: #000;
+  font-size: 46px;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-weight: 300;
+  line-height: 1.2;
+  letter-spacing: -2px;
+  margin: 0;
+  max-width: 478px;
+  text-align: left;
+  /* Mengatur teks untuk ditampilkan di kiri */
 }
 
 /* Frame 42 - Various Category */
@@ -441,7 +1057,6 @@ lampuImage {
   max-width: 1200px;
   margin: 80px auto;
   padding: 0 20px;
-  
 }
 
 .category-header {
@@ -450,12 +1065,10 @@ lampuImage {
   align-items: center;
   margin-bottom: 40px;
   text-align: center;
-
 }
 
 .category-title {
   font-size: 46px;
-
   color: #000;
   margin: 0;
   display: flex;
@@ -473,7 +1086,7 @@ lampuImage {
   opacity: 0.5;
   font-family: "Plus Jakarta Sans", sans-serif;
   font-weight: 300;
-  
+
 }
 
 .category-grid {
@@ -491,7 +1104,6 @@ lampuImage {
   flex-direction: column;
   align-items: center;
   border: 2px solid #d9d9d9;
- 
 }
 
 .category-image {
@@ -519,18 +1131,23 @@ lampuImage {
 }
 
 .category-tag {
- background: none;
-    
-  border-radius: 25px; /* Rounded corners for the buttons */
+  background: none;
+  border-radius: 25px;
+  /* Rounded corners for the buttons */
   cursor: pointer;
   transition: background-color 0.3s;
   border-color: #000;
   border-width: 1.7px;
-  padding: 10px 10px; /* Adjust padding to give space around text */
-  display: inline-flex; /* Use inline-flex to make the button only as wide as the content */
-  align-items: center; /* Vertically center the text */
-  justify-content: center; /* Horizontally center the text */
-  white-space: nowrap; /* Prevent text from wrapping to the next line */
+  padding: 10px 10px;
+  /* Adjust padding to give space around text */
+  display: inline-flex;
+  /* Use inline-flex to make the button only as wide as the content */
+  align-items: center;
+  /* Vertically center the text */
+  justify-content: center;
+  /* Horizontally center the text */
+  white-space: nowrap;
+  /* Prevent text from wrapping to the next line */
   height: 20px;
 }
 
@@ -558,32 +1175,32 @@ lampuImage {
   margin: 0;
 }
 
-.browse{
+.browse {
   margin-top: 15px;
   align-self: center;
 }
 
 .browse p {
   color: #919191;
-    text-decoration: none;
-    font-size: 0.7em;
-    font-family:"Plus Jakarta Sans", sans-serif;
+  text-decoration: none;
+  font-size: 0.7em;
+  font-family: "Plus Jakarta Sans", sans-serif;
 }
 
 .browse a {
   color: #000000;
   text-decoration: none;
   font-size: 1em;
-  font-family:"Plus Jakarta Sans", sans-serif;
+  font-family: "Plus Jakarta Sans", sans-serif;
 }
 
-.browse img{
+.browse img {
   width: 6px;
 }
 
 /* Frame 54 - Steps Section */
 .steps-container {
-  margin-left: 150px;
+  margin-left: 100px;
   gap: 92px;
   width: 100%;
   display: flex;
@@ -659,9 +1276,11 @@ lampuImage {
   position: relative;
   max-width: 681px;
   box-sizing: border-box;
-  align-items: flex-start;
+  align-items: stretch;
+  /* Mengubah align-items menjadi stretch untuk memenuhi flex container */
   flex-direction: column;
   justify-content: flex-start;
+
 }
 
 .steps-row {
@@ -731,6 +1350,8 @@ lampuImage {
   text-transform: none;
   margin: 0;
   text-align: left;
+  width: 100%;
+  /* Pastikan judul step memenuhi container */
 }
 
 .step-description p {
@@ -744,153 +1365,151 @@ lampuImage {
   text-transform: none;
   margin: 0;
   text-align: left;
+  width: 100%;
+  /* Pastikan deskripsi step memenuhi container */
 }
 
 .smart-section {
-    padding: 60px 100px;
-    font-family: "Plus Jakarta Sans", sans-serif;
-    max-width: 1400px;
-    margin: 0 auto;
+  padding: 60px 100px;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  max-width: 1400px;
+  margin: 0 auto;
 }
 
 .smart-header h2 {
   width: 100%;
-    font-size: 38px;
-    font-weight: 300;
-    line-height: 1.2;
-    margin-bottom: 20px;
+  font-size: 38px;
+  font-weight: 300;
+  line-height: 1.2;
+  margin-bottom: 20px;
 }
 
 .smart-container {
-    display: flex;
-    gap: 60px;
-    align-items: flex-start;
-    
+  display: flex;
+  gap: 60px;
+  align-items: flex-start;
 }
 
 .smart-content {
-    flex: 0 0 400px;
-    margin-left: -50px;
-    
-
+  flex: 0 0 400px;
+  margin-left: -50px;
 }
 
 .smart-text {
-    font-size: 14px;
-    line-height: 1.6;
-    color: #333;
+  font-size: 14px;
+  margin-top: 245px;
+  line-height: 1.5;
+  color: #333;
 }
 
 .smart-cards {
-    flex: 1;
-    display: flex;
-    gap: 15px;
-    max-width: 900px;
+  flex: 1;
+  display: flex;
+  gap: 15px;
+  max-width: 900px;
 }
 
 .cards-left {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    flex: 1;
-    padding-left: 100px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  flex: 1;
+  padding-left: 20px;
 }
 
 .smart-card.horizontal {
-    aspect-ratio: 16/9;
-    width: 100%;
-    max-width: 420px;
-    margin-left: auto;
+  aspect-ratio: 16/9;
+  width: 100%;
+  max-width: 420px;
+  margin-left: auto;
 }
 
 .smart-card.vertical {
-    flex: 5 0 250px;
-    aspect-ratio: 9/16;
-    max-height: 490px;
+  flex: 5 0 250px;
+  aspect-ratio: 9/16;
+  max-height: 490px;
 }
 
 .smart-card {
-    position: relative;
-    border-radius: 12px;
-    overflow: hidden;
-    background: #fff;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .card-label {
-    position: absolute;
-    bottom: 15px;
-    left: 15px;
-    background: white;
-    color: black;
-    padding: 8px 16px;
-    border-radius: 8px;
-    font-size: 13px;
-    font-weight: 500;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  
+  position: absolute;
+  bottom: 15px;
+  left: 15px;
+  background: white;
+  color: black;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
 }
 
-
-
 .smart-card.vertical .card-label {
-    bottom: 20px;
-    top: 440px;
-    left: 20px;
-    position: absolute;
+  bottom: 20px;
+  top: 440px;
+  left: 20px;
+  position: absolute;
 
-    background: white;
-    color: black;
-    padding: 5px;
-    border-radius: 8px;
-    font-size: 13px;
-    font-weight: 500;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    font-family: "Plus Jakarta Sans", sans-serif;
-    font-weight: 300;
+  background: white;
+  color: black;
+  padding: 5px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-weight: 300;
 }
 
 .card-label:hover {
-    background: #f8f8f8;
+  background: #f8f8f8;
 }
 
 /* Responsive Design */
 @media (max-width: 1024px) {
-    .smart-container {
-        flex-direction: column;
-    }
-    
-    .smart-text {
-        flex: none;
-        max-width: 100%;
-        margin-bottom: 30px;
-    }
-    
-    .smart-cards {
-        grid-template-columns: 1fr 1fr;
-    }
-    
-    .smart-card.large {
-        grid-column: span 2;
-    }
+  .smart-container {
+    flex-direction: column;
+  }
+
+  .smart-text {
+    flex: none;
+    max-width: 100%;
+    margin-bottom: 30px;
+  }
+
+  .smart-cards {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .smart-card.large {
+    grid-column: span 2;
+  }
 }
 
 @media (max-width: 768px) {
-    .smart-section {
-        padding: 40px 20px;
-    }
-    
-    .smart-header h2 {
-        font-size: 32px;
-    }
-    
-    .smart-cards {
-        grid-template-columns: 1fr;
-    }
-    
-    .smart-card.large {
-        grid-column: span 1;
-    }
+  .smart-section {
+    padding: 40px 20px;
+  }
+
+  .smart-header h2 {
+    font-size: 32px;
+  }
+
+  .smart-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .smart-card.large {
+    grid-column: span 1;
+  }
 }
 
 
@@ -944,7 +1563,6 @@ lampuImage {
   padding: 30px 25px;
   position: absolute;
   bottom: 60px;
-  
   max-width: 462px;
   box-sizing: border-box;
   align-items: center;
@@ -954,8 +1572,8 @@ lampuImage {
   background-color: #fff;
 }
 
-.testimonial-subtitle  {
-  text-align: left;  
+.testimonial-subtitle {
+  text-align: left;
   color: #000;
   font-size: 22px;
   font-family: "Plus Jakarta Sans", sans-serif;
@@ -965,7 +1583,7 @@ lampuImage {
   text-transform: none;
   margin: 0 auto;
 
-  
+
 }
 
 .testimonial-quote {
@@ -1008,111 +1626,168 @@ lampuImage {
   text-align: left;
 }
 
+/* Frame 65 - Still Not Sure */
+/* Container Styling */
+/* Styling untuk Container */
+.still-not-sure {
+  width: 100%;
+  max-width: 1200px; /* Lebar maksimum */
+  margin: 0 auto; /* Pusatkan container */
+  padding: 20px;
+  border-radius: 8px; /* Membuat sudut membulat */
+}
+
+/* Styling untuk Table */
+.still-not-sure-table {
+  width: 100%; /* Melebarkan tabel */
+  border-collapse: collapse; /* Menghapus ruang antar kolom */
+}
+
+/* Kolom Kiri (Judul) */
+.still-not-sure-title {
+  font-size: 36px;
+  font-weight: 600;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  color: #000000; /* Warna hitam */
+  text-align: right; /* Teks di kiri */
+  padding: 10px 20px; /* Ruang dalam sel */
+  width: 50%; /* Mengatur lebar kolom */
+}
+
+/* Kolom Kanan (Deskripsi) */
+.still-not-sure-description {
+  font-size: 20px;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  color: #6c6c6c; /* Warna abu-abu */
+  text-align: left; /* Teks di kanan */
+  padding: 10px 20px; /* Ruang dalam sel */
+  width: 50%; /* Mengatur lebar kolom */
+}
+
 /* Frame 75 - Blog Section */
-/* Styling for Card Container */
-.card-container {
+.blog-header {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   padding: 20px;
-  gap: 10px;
+}
 
+.dropdown-container {
+  display: flex;
+  gap: 5px;
+  margin-left: 61px;
+}
+
+.dropdown {
+  padding: 10px 15px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #ffffff;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  cursor: pointer;
+}
+
+/* Styling for Card Container */
+/* Card Container */
+.card-container {
+  display: flex;
+  flex-wrap: wrap; /* Membungkus kartu jika layar terlalu kecil */
+  justify-content: center; /* Menyelaraskan kartu di tengah */
+  gap: 20px; /* Jarak antar kartu */
+  padding: 20px;
+  max-width: 1200px; /* Lebar maksimum container */
+  margin: 0 auto; /* Memusatkan container */
 }
 
 /* Card Styling */
 .card {
-  display: flex; /* Mengatur gambar dan teks horizontal */
+  display: flex;
+  flex-direction: row; /* Gambar di sebelah konten */
   align-items: flex-start; /* Menyelaraskan elemen secara vertikal */
-  gap: 0px; /* Memberikan jarak antara gambar dan teks */
-  padding: 10px; /* Padding di dalam card */
-  background-color: #fff;
+  gap: 20px; /* Jarak antara gambar dan konten */
+  padding: 20px;
+  background-color: #ffffff;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
-
-  outline-offset: 400px; /* Memberikan jarak antara outline dan konten */
-  max-width: 600px;
-  margin: 20px auto;
+  width: calc(33.333% - 20px); /* Tiga kartu dalam satu baris */
+  max-width: 447px; /* Sesuai ukuran di gambar */
+  height: 290px; /* Tinggi tetap untuk kartu */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Card Image Styling */
+/* Hover Effect */
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Card Image */
 .card-image {
-border-radius: 5px;
-  flex: 1; /* Allow image to take up equal space */
-  background: linear-gradient(to right, #ff6b6b, #845ec2);
-  height: auto; /* Ensure height adjusts to content */
-  min-height: 300px; /* Set minimum height */
+  flex: 0 0 150px; /* Lebar gambar tetap */
+  height: 100%; /* Tinggi gambar mengikuti tinggi kartu */
+  border-radius: 8px;
+  background: linear-gradient(to right, #ff6b6b, #845ec2); /* Gradien warna */
 }
 
-/* Card Content Styling */
+/* Card Content */
 .card-content {
-  flex: 1; /* Allow content to take up equal space */
-  padding:12px;
+  flex: 1; /* Konten mengambil sisa ruang */
   display: flex;
-  flex-direction: column;
-  justify-content: center; /* Center content vertically */
-  
+  flex-direction: column; /* Konten disusun secara vertikal */
+  justify-content: center; /* Menyelaraskan konten */
 }
 
 .card-title {
-  font-size: 30px;
-  font-weight: bold;
-  color: #000000;
-  margin-bottom: 0px;
+  font-size: 20px;
+  font-weight: 600;
   font-family: "Plus Jakarta Sans", sans-serif;
-  font-weight: 500;
+  color: #000;
+  margin-bottom: 10px;
 }
 
 .card-description {
   font-size: 14px;
-  color: #000000;
+  color: #6c6c6c;
   margin-bottom: 15px;
-  line-height: 1.5;
+  line-height: 1.6;
   font-family: "Plus Jakarta Sans", sans-serif;
-  font-weight: 400;
-
-  overflow: hidden; /* Menghilangkan teks yang keluar dari kontainer */
-
 }
 
 .card-link {
-  margin-top: 100px;
   font-size: 14px;
-  line-height:2cap;
-  color: #cdcdcd;
+  color: #845ec2;
   text-decoration: none;
+  font-weight: 500;
   font-family: "Plus Jakarta Sans", sans-serif;
-  font-weight: 400;
+  transition: color 0.3s ease;
 }
 
 .card-link:hover {
+  color: #ff6b6b; /* Warna merah saat hover */
   text-decoration: underline;
 }
 
+/* Frame 80 - Footer Note */
+.footer-note {
+  text-align: center;
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 14px;
+  color: #6c6c6c;
+}
 
-
-.footer-text p,
-.footer-link p {
-  font-size: 16px;
-  margin: 0;
+.browse-link {
+  color: #845ec2;
+  text-decoration: none;
   font-weight: 500;
 }
 
-.footer-link {
-  display: flex;
-  align-items: center;
-  gap: 8px; /* Jarak antara teks dan ikon panah */
-  cursor: pointer;
+.browse-link:hover {
+  text-decoration: underline;
 }
 
-.footer-link img {
-  display: inline-block;
-}
-
-
-.arrow-icon {
-  width: 12px;
-  height: 12px;
-}
 
 /* Frame 77 - CTA Section */
 
@@ -1128,15 +1803,12 @@ border-radius: 5px;
   text-align: center;
 
   padding: 20px;
-
   border-radius: 10px;
   margin-top: 100px;
-    /* Menempatkan elemen di tengah menggunakan position */
-    position: absolute;
-   
-    left: 50%;
-    transform: translate(-50%, -50%);
-    
+  /* Menempatkan elemen di tengah menggunakan position */
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .cta-content {
@@ -1149,7 +1821,7 @@ border-radius: 5px;
   align-items: center;
   flex-direction: column;
   justify-content: flex-start;
-  
+
 }
 
 
@@ -1169,7 +1841,7 @@ border-radius: 5px;
 .cta-subtitle {
   width: 100%;
   text-align: center;
-  
+
 }
 
 .cta-subtitle p {
@@ -1187,13 +1859,13 @@ border-radius: 5px;
 
 /* Footer */
 footer {
-  margin-top: 200px;
-  
-  background: url('Image/FooterBackground.svg') no-repeat center center;
+  margin-top: 50px;
+  background: url('../Image/FooterBackground.svg') no-repeat center center;
   background-size: cover;
   color: white;
   padding: 7px 0;
-  position: relative; /* Ensures text is layered above the background */
+  position: relative;
+  /* Ensures text is layered above the background */
 }
 
 .footer-content {
@@ -1204,18 +1876,14 @@ footer {
   justify-content: space-between;
   align-items: flex-start;
   gap: 40px;
-
 }
 
 .footer-left {
   flex: 1;
   max-width: 500px;
-
 }
 
 .footer-text {
-
-
   font-size: 14px;
   line-height: 1.6;
   color: #ffffff;
@@ -1263,47 +1931,50 @@ footer {
 }
 
 .footer-ses {
-  font-size: 120px;
+  font-size: 93px;
   font-family: "Plus Jakarta Sans", sans-serif;
   font-weight: 1000;
   text-align: center;
-  position: relative; /* Ensure this text stays above the background */
+  position: relative;
+  /* Ensure this text stays above the background */
 }
 
 /* Add responsive styles */
 @media (max-width: 768px) {
   .footer-content {
-      flex-direction: column;
+    flex-direction: column;
   }
 
-  .footer-left, .footer-right {
-      max-width: 100%;
+  .footer-left,
+  .footer-right {
+    max-width: 100%;
   }
 
   .newsletter-form {
-      flex-direction: column;
+    flex-direction: column;
   }
 
   .subscribe-btn {
-      width: 100%;
+    width: 100%;
   }
 }
 
 /* Assuming the card has a unique class or ID */
 .smart-card.horizontal:nth-child(2) .card-label {
-    position: absolute;
-    top: 10px; /* Adjust as needed *
+  position: absolute;
+  top: 10px;
+  /* Adjust as needed *
     left: 10px; /* Adjust as needed */
-    bottom: 200px;
-    background: white;
-    color: black;
-    padding: 5px;
-    border-radius: 8px;
-    font-size: 13px;
-    font-weight: 500;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    font-family: "Plus Jakarta Sans", sans-serif;
-    font-weight: 300;
+  bottom: 200px;
+  background: white;
+  color: black;
+  padding: 5px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-weight: 300;
 
 
 }
@@ -1312,7 +1983,8 @@ footer {
 /* Assuming the card has a unique class or ID */
 .smart-card.horizontal:nth-child(1) .card-label {
   position: absolute;
-  top: 200px; /* Adjust as needed *
+  top: 200px;
+  /* Adjust as needed *
   left: 10px; /* Adjust as needed */
   bottom: 10px;
   background: white;
@@ -1321,7 +1993,7 @@ footer {
   border-radius: 8px;
   font-size: 13px;
   font-weight: 500;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   font-family: "Plus Jakarta Sans", sans-serif;
   font-weight: 300;
 
