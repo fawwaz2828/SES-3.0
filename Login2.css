@@ -1,0 +1,151 @@
+/* Styling global */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #000;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+/* Navbar Styling */
+.navbar {
+    width: 100%;
+    
+    
+    padding: 10px 20px; /* Menambahkan padding untuk ruang di dalam navbar */
+    display: flex;
+    justify-content: flex-start; /* Menyusun logo dan menu di kiri */
+    align-items: center;
+    position: fixed; /* Navbar tetap di atas halaman */
+    top: 0;
+    left: 0;
+    z-index: 100;
+}
+
+.logo img {
+    margin-top: 2px;
+    margin-left: 25px;
+    width: 100px; /* Ukuran logo */
+    margin-right: 0px; /* Memberi jarak antara logo dan menu */
+}
+
+.nav-links {
+    
+    list-style: none;
+    display: flex;
+    
+}
+
+.nav-links li {
+    margin-left: 0px; /* Memberikan jarak antar item menu */
+    margin-right: 40px;
+}
+
+.nav-links a {
+    
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.1em;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    font-family:"Plus Jakarta Sans", sans-serif;
+    font-weight: 200;
+}
+
+.nav-links a:hover {
+    color: #b9b9b9; /* Efek hover */
+}
+
+/* Kontainer untuk main content */
+.container {
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+    width: 100%;
+    margin-top: 180px; /* Adjust for navbar height */
+    flex-direction: column;
+}
+
+.content {
+    text-align: center;
+}
+
+h1 {
+    text-align: left;
+    font-size: 2em;
+    margin-bottom: 10px;
+    font-family: "Plus Jakarta Sans", sans-serif;
+  
+    font-weight: 600;
+}
+h2{
+    text-align: left;
+    font-size: 44.5px;
+    font-family:"Plus Jakarta Sans", sans-serif;
+    font-weight: 300;
+    margin-top: 0px;
+}
+
+input, button {
+    display: block;
+    width: 400px;
+    height: 50px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #CBD5E1;
+    border-radius: 10px;
+    background-color: #1A1A1A;
+    color: #919191;
+    box-sizing: border-box;  /* Agar padding dan border tidak mempengaruhi lebar total */
+    font-family:"Plus Jakarta Sans", sans-serif;
+    font-weight: 500;
+}
+
+button {
+    justify-content: center;
+    margin-top: 20px;
+    display: block;
+   width: 530px;
+    background-color: #fff;
+    color: #000;
+    cursor: pointer;
+}
+
+/* Styling untuk tombol Google */
+.google-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    color: #000;
+}
+
+.google-btn img {
+    width: 32px;
+    margin-bottom: 3px;
+    margin-right: 6px;
+}
+.login{
+
+    justify-content: center;
+    display: block;
+}
+
+/* Styling untuk link */
+.login p {
+    color: #919191;
+    text-decoration: none;
+    font-size: 0.9em;
+    font-family:"Plus Jakarta Sans", sans-serif;
+}
+
+.login a{
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1em;
+    font-family:"Plus Jakarta Sans", sans-serif;
+}

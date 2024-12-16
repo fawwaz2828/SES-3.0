@@ -1,0 +1,221 @@
+/* Styling global */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #000;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+/* Navbar Styling */
+.navbar {
+    width: 100%;
+    
+    
+    padding: 10px 20px; /* Menambahkan padding untuk ruang di dalam navbar */
+    display: flex;
+    justify-content: flex-start; /* Menyusun logo dan menu di kiri */
+    align-items: center;
+    position: fixed; /* Navbar tetap di atas halaman */
+    top: 0;
+    left: 0;
+    z-index: 100;
+}
+
+.logo img {
+    margin-left: 25px;
+    width: 100px; /* Ukuran logo */
+    margin-right: 0px; /* Memberi jarak antara logo dan menu */
+}
+
+.nav-links {
+    
+    list-style: none;
+    display: flex;
+    
+}
+
+.nav-links li {
+    margin-left: 0px; /* Memberikan jarak antar item menu */
+    margin-right: 40px;
+}
+
+.nav-links a {
+    
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.1em;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    font-family:"Plus Jakarta Sans", sans-serif;
+    font-weight: 200;
+}
+
+.nav-links a:hover {
+    color: #b9b9b9; /* Efek hover */
+}
+
+/* Kontainer untuk main content */
+.container {
+    
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 140px; /* Memberikan ruang untuk navbar */
+    
+}
+
+.left {
+    flex: 1;
+    padding: 20px;
+    margin-left: 100px;
+}
+.left h1{
+    font-size: 30px;
+    margin-bottom: 0px;
+    font-family: "Plus Jakarta Sans", sans-serif;
+  
+    font-weight: 600;
+  
+  
+}
+.left h2{
+    font-size: 44.5px;
+    font-family:"Plus Jakarta Sans", sans-serif;
+    font-weight: 300;
+    margin-top: 0px;
+}
+
+.left p{
+    font-size: 12.7px;
+    color:#919191;
+    font-family:"Plus Jakarta Sans", sans-serif;
+    font-weight: 300;
+    margin-top: 0px;
+}
+
+.right {
+    flex: 1;
+    padding: 38px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-right: 80px;
+    margin-top: 0px;
+    
+   
+}
+
+/* Styling untuk heading dan paragraph */
+h1 {
+    font-size: 2.5em;
+    margin-bottom: 0.5em;
+}
+
+p {
+    margin-bottom: 2em;
+}
+
+/* Styling untuk input fields */
+form input[type="email"],
+form input[type="password"] {
+    
+    width: 100% !important;
+    
+    padding: 10px !important;
+    margin-bottom: 20px !important;
+    border: 1px solid #CBD5E1 !important;
+    border-radius: 10px !important;
+    background-color: #1A1A1A !important;
+    color: #919191 !important;
+    height: 50px !important;
+    font-size: 16px !important;
+    box-sizing: border-box !important; /* Agar padding dan margin tidak membuat elemen meluap */
+    font-family:"Plus Jakarta Sans", sans-serif !important;
+    font-weight: 500 !important;
+}
+
+/* Kontainer untuk input First Name dan Last Name */
+.name-container {
+    display: flex;
+    gap: 10px;
+}
+
+.name-container input {
+    flex: 1;
+}
+
+
+form label{
+    font-family:"Plus Jakarta Sans", sans-serif;
+    font-weight: 500;
+}
+
+/* Styling button */
+button {
+
+    font-size: 20px;
+    height: 50px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #fff;
+    color: #000;
+    cursor: pointer;
+    margin-bottom: 20px;
+    font-family:"Plus Jakarta Sans", sans-serif;
+    font-weight: 500;
+}
+
+form button[type="submit"] {
+    width: 100% !important;
+    padding: 12px !important;
+    background-color: #fff !important;
+    color: rgb(0, 0, 0) !important;
+    border: none !important;
+    border-radius: 5px !important;
+    cursor: pointer !important;
+    font-size: 20px !important;
+    font-family:"Plus Jakarta Sans", sans-serif !important;
+    font-weight: 500 !important;
+}
+
+
+
+/* Styling untuk tombol Google */
+.google-btn {
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    color: #000;
+}
+
+.google-btn img {
+    margin-top: 2px;
+    width: 35px;
+    margin-top: 1px;
+    margin-bottom: 0px;
+    margin-right: 6px;
+}
+.login{
+    align-self: center;
+}
+
+/* Styling untuk link */
+.login p {
+    color: #919191;
+    text-decoration: none;
+    font-size: 0.9em;
+    font-family:"Plus Jakarta Sans", sans-serif;
+}
+
+.login a{
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1em;
+    font-family:"Plus Jakarta Sans", sans-serif;
+}

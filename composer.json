@@ -1,0 +1,18 @@
+{
+    "name": "macbookair/sustain-energy-solution-main",
+    "autoload": {
+        "psr-4": {
+            "Macbookair\\SustainEnergySolutionMain\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "fawwaz2828",
+            "email": "fawwazwibowo96@gmail.com"
+        }
+    ],
+    "require": {
+        "phpmailer/phpmailer": "^6.9",
+        "google/apiclient": "^2.15.0"
+    }
+}
