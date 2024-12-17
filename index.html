@@ -42,12 +42,12 @@
 
     <!-- Overlay dengan gambar lampu -->
     <div class="overlay" id="overlay">
-      <img src="Image/Property 1=Default.svg" alt="Gambar Overlay" class="lampuImage" id="lampuImage">
+      <img src="/Image/Property 1=Default.svg" alt="Gambar Overlay" class="lampuImage" id="lampuImage">
 
     </div>
 
     <!-- Gambar latar belakang yang akan diganti -->
-    <img src="Image/Union.svg" alt="Gambar Latar" class="gambarBlank" id="gambarBlank">
+    <img src="/Image/Union.svg" alt="Gambar Latar" class="gambarBlank" id="gambarBlank">
   </div>
 
   <pre>
@@ -67,7 +67,7 @@
   <div class="statement-section">
     <div class="statement-header">
       <p class="statement-text">Light</p>
-      <img src="Image/Hands Cradling Glowing Sphere 1.png" alt="Glowing Sphere" class="statement-image" />
+      <img src="/Image/Hands Cradling Glowing Sphere 1.png" alt="Glowing Sphere" class="statement-image" />
       <p class="statement-text">is essential to </p>
     </div>
     <div class="statement-body">
@@ -110,12 +110,14 @@
       </div>
       <div class="mission-highlight">
         <p class="mission-text">protecting</p>
-        <img src="Image/View of Earth from Space 1.png" alt="Earth from Space" class="mission-image" />
+        <img src="/Image/View of Earth from Space 1.png" alt="Earth from Space" class="mission-image" />
         <p class="mission-text">the planet.</p>
       </div>
     </div>
   </div>
+
   <pre>
+
 
 
 
@@ -181,31 +183,31 @@
     <div class="category-grid">
       <!-- Downlight -->
       <div class="category-card">
-        <img src="Image/image 3.png" alt="Downlight" class="category-image">
+        <img src="/Image/image 3.png" alt="Downlight" class="category-image">
         <p class="category-name">Downlight</p>
       </div>
 
       <!-- Downlight Accent -->
       <div class="category-card">
-        <img src="Image/image 4.png" alt="Downlight Accent" class="category-image">
+        <img src="/Image/image 4.png" alt="Downlight Accent" class="category-image">
         <p class="category-name">Downlight Accent</p>
       </div>
 
       <!-- Downlight -->
       <div class="category-card">
-        <img src="Image/image 5.png" alt="Downlight" class="category-image">
+        <img src="/Image/image 5.png" alt="Downlight" class="category-image">
         <p class="category-name">Downlight</p>
       </div>
 
       <!-- Batten -->
       <div class="category-card">
-        <img src="Image/image 6.png" alt="Batten" class="category-image">
+        <img src="/Image/image 6.png" alt="Batten" class="category-image">
         <p class="category-name">Batten</p>
       </div>
 
       <!-- Gridlight -->
       <div class="category-card">
-        <img src="Image/image 7.png" alt="Gridlight" class="category-image">
+        <img src="/Image/image 7.png" alt="Gridlight" class="category-image">
         <p class="category-name">Gridlight</p>
       </div>
     </div>
@@ -366,18 +368,18 @@
       <div class="smart-cards">
         <div class="cards-left">
           <div class="smart-card horizontal">
-            <img src="Image/Professional Exchange at Construction Site 1.png" alt="Free Site Survey">
+            <img src="/Image/Professional Exchange at Construction Site 1.png" alt="Free Site Survey">
             <div class="card-label">Free Site Survey</div>
           </div>
 
           <div class="smart-card horizontal">
-            <img src="Image/Casual Tech-Engaged Man with Textured Hair 1.png" alt="Control Your Light">
+            <img src="/Image/Casual Tech-Engaged Man with Textured Hair 1.png" alt="Control Your Light">
             <div class="card-label">Control Your Light</div>
           </div>
         </div>
 
         <div class="smart-card vertical">
-          <img src="Image/Contemporary Elegance_ The Dance of Light and Shadow 1.png" alt="Energy Efficiency">
+          <img src="/Image/Contemporary Elegance_ The Dance of Light and Shadow 1.png" alt="Energy Efficiency">
           <div class="card-label">Energy Efficiency Meets Artistry</div>
         </div>
       </div>
@@ -413,7 +415,7 @@
   <!-- Frame 57 - Testimonial -->
   <section class="testimonial">
     <div class="testimonial-container">
-      <img src="Image/Futuristic Mesh-Lit Lounge 1.png" alt="Modern Workspace" class="testimonial-image">
+      <img src="/Image/Futuristic Mesh-Lit Lounge 1.png" alt="Modern Workspace" class="testimonial-image">
 
       <div class="testimonial-content">
         <h2 class="testimonial-title">A better future starts from your workspace</h2>
@@ -421,10 +423,10 @@
         <div class="testimonial-box">
           <h3 class="testimonial-subtitle">Who have get their light with us</h3>
           <div class="testimonial-quote">
-            <img src="Image/left quote.svg" alt="Quote" class="quote-icon">
+            <img src="/Image/left quote.svg" alt="Quote" class="quote-icon">
             <p>"I love how effortlessly I can control my lights from my phone. It's not just efficient but also adds a
               touch of modern elegance to my space."</p>
-            <img src="Image/right quote.svg" alt="Quote" class="quote-icon">
+            <img src="/Image/right quote.svg" alt="Quote" class="quote-icon">
           </div>
         </div>
       </div>
@@ -596,7 +598,11 @@
         const isLoggedIn = false; // Contoh: ganti dengan logika status login yang sebenarnya
 
         if (!isLoggedIn) {
+<<<<<<< HEAD
           window.location.href = 'php/Login1.php'; // Redirect ke halaman login jika belum login
+=======
+          window.location.href = '../PHP/Login1.php'; // Redirect ke halaman login jika belum login
+>>>>>>> c79172fe9a7c46fa2cc999f1d794a5525bca808c
         } else {
           // Tindakan yang akan dilakukan jika sudah login
           alert('Proceeding to book a consultation...');
