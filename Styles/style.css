@@ -679,7 +679,7 @@ header {
 
 /* Saat dihover, gambar akan berubah */
 .overlay .lampuImage:hover {
-  content: url('Image/Property\ 1=on\ hover.svg');
+  content: url('../Image/Property\ 1=on\ hover.svg');
   /* Ganti dengan gambar baru */
   transform: scale(1.1);
   /* Membesarkan dan memutar elemen */
@@ -933,7 +933,7 @@ header {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url('Image/Modern Office Interior (1) 1.png');
+  background-image: url('../Image/Modern\ Office\ Interior\ \(1\)\ 1.png');
   background-size: cover;
   background-position: center;
 }
