@@ -37,7 +37,7 @@ document.querySelector(".cta-button").addEventListener("click", function () {
   const isLoggedIn = false; // Example: Replace with actual login status check
 
   if (!isLoggedIn) {
-    window.location.href = "Login1.php"; // Redirect to login page
+    window.location.href = "../PHP/Logiin1.php"; // Redirect to login page
   } else {
     // Proceed with the intended action if logged in
     alert("Proceeding to book a consultation...");

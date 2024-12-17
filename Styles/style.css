@@ -152,7 +152,7 @@ header {
 
 /* Saat dihover, gambar akan berubah */
 .overlay .lampuImage:hover {
-  content: url('Image/Property\ 1=on\ hover.svg');
+  content: url('/Image/Property\ 1=on\ hover.svg');
   /* Ganti dengan gambar baru */
   transform: scale(1.1);
   /* Membesarkan dan memutar elemen */
@@ -243,7 +243,7 @@ header {
   height: auto;
   object-fit: cover;
   /* Jaga proporsi gambar */
-  margin-bottom: 30px;
+  margin-bottom: 10px;
 }
 
 .statement-text {
@@ -382,7 +382,7 @@ header {
   width: 120px;
   height: auto;
   object-fit: cover;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
 }
 
 /* Frame 21 - Stats & Tagline */
