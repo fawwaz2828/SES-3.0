@@ -1,0 +1,24 @@
+parameters:
+    level: 9
+    phpVersion: 80200
+    treatPhpDocTypesAsCertain: false
+    paths:
+        - src
+        - includes
+        - admin
+        - index.php
+        - explore.php
+        - product.php
+        - blog.php
+        - article.php
+        - login.php
+        - register.php
+        - logout.php
+        - dashboard.php
+        - consultation-form.php
+        - consultation.php
+        - devices.php
+        - profile.php
+        - profile-edit.php
+    excludePaths:
+        - includes/config.local.php

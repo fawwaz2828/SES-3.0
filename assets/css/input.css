@@ -1,0 +1,144 @@
+/*
+ * Tailwind source. Do not edit app.css directly — run `npm run build:css`
+ * (or `npm run watch:css` while developing) after changing classes.
+ */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    html {
+        /* Always reserve the scrollbar so the layout never shifts between pages. */
+        scrollbar-gutter: stable;
+        background-color: #f5f5f7;
+    }
+
+    body {
+        @apply bg-[#f5f5f7] text-neutral-900 transition-colors duration-1000;
+        /* Soft ambient light behind the glass surfaces. */
+        background-image:
+            radial-gradient(45rem 30rem at 10% -5%, rgb(255 214 153 / 0.45), transparent 70%),
+            radial-gradient(40rem 32rem at 95% 10%, rgb(160 196 255 / 0.4), transparent 70%),
+            radial-gradient(50rem 30rem at 50% 110%, rgb(255 190 210 / 0.3), transparent 70%);
+        background-attachment: fixed;
+    }
+
+    html.lights-off,
+    .lights-off body {
+        @apply bg-neutral-950;
+    }
+
+    .lights-off body {
+        background-image: none;
+    }
+}
+
+@layer components {
+    .container-page {
+        @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+    }
+
+    /* ---------------------------------------------------- liquid glass */
+
+    .glass {
+        @apply relative isolate border border-white/60 bg-white/45 backdrop-blur-2xl backdrop-saturate-[1.8];
+        box-shadow:
+            inset 0 1px 0 rgb(255 255 255 / 0.9),
+            inset 0 -1px 0 rgb(255 255 255 / 0.25),
+            0 8px 32px rgb(15 23 42 / 0.08);
+    }
+
+    /* Specular highlight: light catching the top-left edge of the glass. */
+    .glass::before {
+        content: '';
+        @apply pointer-events-none absolute inset-0 -z-10 rounded-[inherit];
+        background: linear-gradient(135deg, rgb(255 255 255 / 0.6), transparent 38%, transparent 62%, rgb(255 255 255 / 0.18));
+    }
+
+    .lights-off .glass {
+        @apply border-white/15 bg-white/[0.06] text-white;
+        box-shadow:
+            inset 0 1px 0 rgb(255 255 255 / 0.18),
+            0 8px 32px rgb(0 0 0 / 0.4);
+    }
+
+    .lights-off .glass::before {
+        background: linear-gradient(135deg, rgb(255 255 255 / 0.12), transparent 40%);
+    }
+
+    .glass-dark {
+        @apply relative isolate border border-white/10 bg-neutral-950/70 text-white backdrop-blur-2xl backdrop-saturate-150;
+        box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.12), 0 12px 40px rgb(0 0 0 / 0.35);
+    }
+
+    .card {
+        @apply glass rounded-3xl;
+    }
+
+    /* ---------------------------------------------------------- buttons */
+
+    .btn {
+        @apply inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full px-5 py-2.5 text-sm font-medium transition duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-neutral-900 focus-visible:ring-offset-2 active:scale-[0.97] disabled:pointer-events-none disabled:opacity-50;
+    }
+
+    .btn-primary {
+        @apply bg-neutral-900 text-white shadow-lg shadow-neutral-900/20 hover:bg-neutral-700;
+        box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.2), 0 8px 20px rgb(15 23 42 / 0.2);
+    }
+
+    .lights-off .btn-primary {
+        @apply bg-white text-neutral-900 hover:bg-neutral-200;
+    }
+
+    .btn-outline {
+        @apply glass text-neutral-900 hover:bg-white/70;
+    }
+
+    .btn-ghost {
+        @apply text-neutral-600 hover:bg-white/60 hover:text-neutral-900;
+    }
+
+    .lights-off .btn-ghost {
+        @apply text-white/70 hover:bg-white/10 hover:text-white;
+    }
+
+    .btn-danger {
+        @apply bg-red-600 text-white hover:bg-red-700;
+    }
+
+    .btn-sm {
+        @apply px-3.5 py-1.5 text-xs;
+    }
+
+    /* ------------------------------------------------------------ forms */
+
+    .label {
+        @apply mb-1.5 block text-sm font-medium text-neutral-700;
+    }
+
+    .input {
+        @apply block w-full rounded-2xl border border-white/70 bg-white/60 px-4 py-2.5 text-sm text-neutral-900 shadow-inner shadow-neutral-900/[0.03] backdrop-blur-xl transition placeholder:text-neutral-400 read-only:bg-white/30 focus:border-neutral-900/40 focus:bg-white/90 focus:outline-none focus:ring-4 focus:ring-neutral-900/5;
+    }
+
+    .checkbox {
+        @apply mt-0.5 h-4 w-4 shrink-0 rounded border-neutral-300 accent-neutral-900;
+    }
+
+    /* ------------------------------------------------------- misc atoms */
+
+    .badge {
+        @apply inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium;
+    }
+
+    .pill {
+        @apply inline-flex items-center rounded-full px-4 py-1.5 text-sm transition;
+    }
+
+    .pill-active {
+        @apply bg-neutral-900 text-white shadow-lg shadow-neutral-900/20;
+    }
+
+    .pill-idle {
+        @apply glass text-neutral-700 hover:bg-white/70 hover:text-neutral-900;
+    }
+}

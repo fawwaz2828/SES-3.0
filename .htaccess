@@ -1,3 +1,11 @@
-<Files "db.php">
-    Deny from all
-</Files>
+# Disable directory listings
+Options -Indexes
+
+# Block direct access to internal folders
+RedirectMatch 403 /(includes|database)(/|$)
+
+# Never execute scripts from the uploads folder
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteRule ^uploads/.*\.(php\d?|phtml|phar)$ - [F,NC]
+</IfModule>

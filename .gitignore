@@ -1,0 +1,21 @@
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Local settings (see includes/config.php)
+includes/config.local.php
+
+# User uploads
+uploads/
+
+# Dependencies
+node_modules/
+vendor/
+
+# Tool caches
+.php-cs-fixer.cache
+
+# Local tool output
+.build/

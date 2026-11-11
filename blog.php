@@ -1,234 +1,98 @@
 <?php
-// Include database connection and navbar
-include('includes/navbar.php'); // Navbar tetap ditampilkan
-include('includes/db.php');
 
+declare(strict_types=1);
 
-// Query untuk mengambil 1 blog utama dan 3 side blogs
-$sql = "SELECT id, title, content, category, image, visible, display_order 
-        FROM blogs 
-        WHERE visible = 1
-        ORDER BY display_order ASC 
-        LIMIT 4";
-$result = $conn->query($sql);
+use Ses\Repository\ArticleRepository;
 
-// Query untuk artikel populer
-$popular_sql = "SELECT id, title, category, image, view_count 
-                FROM blogs 
-                ORDER BY view_count DESC 
-                LIMIT 4";
-$popular_result = $conn->query($popular_sql);
+require __DIR__ . '/includes/bootstrap.php';
 
-// Query untuk mendapatkan kategori unik
-$category_sql = "SELECT DISTINCT category FROM blogs WHERE visible = 1";
-$category_result = $conn->query($category_sql);
+$articleRepository = new ArticleRepository(db());
+$featured = $articleRepository->featured(4);
+$popular = $articleRepository->popular(4);
+$categories = $articleRepository->categories();
 
-// Handle search query
-$search = isset($_GET['search']) ? $_GET['search'] : '';
-$selected_category = isset($_GET['category']) ? $_GET['category'] : '';
+$search = query('search');
+$selected = in_array(query('category'), $categories, true) ? query('category') : null;
+$latest = $articleRepository->search($search, $selected);
 
-// Query untuk latest articles dengan search dan filter
-$latest_sql = "SELECT id, title, content, category, image 
-               FROM blogs 
-               WHERE visible = 1";
-if (!empty($search)) {
-    $latest_sql .= " AND (title LIKE '%$search%' OR content LIKE '%$search%')";
-}
-if (!empty($selected_category)) {
-    $latest_sql .= " AND category = '$selected_category'";
-}
-$latest_sql .= " ORDER BY created_at DESC";
-$latest_result = $conn->query($latest_sql);
+/** blog.php URL that keeps the current filters. */
+$filterUrl = static function (?string $category) use ($search): string {
+    $params = array_filter(['search' => $search, 'category' => $category ?? '']);
+
+    return url('blog.php' . ($params !== [] ? '?' . http_build_query($params) : '') . '#latest');
+};
+
+$title = 'Blog';
+require __DIR__ . '/includes/layout/header.php';
 ?>
 
-<!DOCTYPE html>
-<html lang="id">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Smart Lighting Solutions</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;400;600;800&display=swap');
-        body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-        }
-    </style>
-</head>
+<section class="container-page pb-12 pt-16 lg:pt-24">
+    <h1 class="max-w-3xl text-5xl font-normal leading-[1.05] tracking-tighter sm:text-6xl">
+        Lighting the space. <span class="text-neutral-400">Smart tips &amp; trends.</span>
+    </h1>
+</section>
 
-<body class="bg-white">
-    <!-- Main Content Wrapper with navbar spacing -->
-    <div class="mt-20 container mx-auto">
-        <!-- Header -->
-        <header class="py-8 text-left mx-auto px-24">
-            <h1 class="text-4xl font-bold text-gray-800">Lighting the Space, <span class="text-gray-500">Smart Tips & Trends</span></h1>
-            <hr class="w-16 mx-auto mt-4 border-t-2 border-gray-300" />
-        </header>
-
-        <!-- Featured Blog Section -->
-        <div class="container mx-auto">
-            <div class="grid grid-cols-6 gap-4 px-24">
-                <?php
-                if ($result && $result->num_rows > 0) {
-                    $i = 0;
-                    while ($row = $result->fetch_assoc()) {
-                        if ($i == 0) {
-                            // Main Featured Blog
-                            ?>
-                            <div class="col-span-6 md:col-span-3 row-span-3 bg-white rounded-lg shadow-lg overflow-hidden">
-                                <a href="detail.php?id=<?= $row['id'] ?>">
-                                    <img src="data:image/jpeg;base64,<?= base64_encode($row['image']) ?>" 
-                                         alt="<?= htmlspecialchars($row['title']) ?>" 
-                                         class="w-full h-64 object-cover">
-                                    <div class="p-6">
-                                        <h2 class="text-2xl font-bold text-gray-800 mb-4"><?= htmlspecialchars($row['title']) ?></h2>
-                                        <p class="text-gray-600 mb-4"><?= htmlspecialchars(substr($row['content'], 0, 350)) ?>...</p>
-                                        <div class="flex space-x-2">
-                                            <span class="px-3 py-1 bg-gray-800 text-white text-sm rounded-full"><?= htmlspecialchars($row['category']) ?></span>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <?php
-                        } else {
-                            // Side Blogs
-                            ?>
-                            <div class="col-span-6 md:col-span-3 bg-white rounded-lg shadow-lg overflow-hidden">
-                                <a href="detail.php?id=<?= $row['id'] ?>">
-                                    <div class="flex">
-                                        <img src="data:image/jpeg;base64,<?= base64_encode($row['image']) ?>" 
-                                             alt="<?= htmlspecialchars($row['title']) ?>" 
-                                             class="w-1/3 object-cover">
-                                        <div class="p-4 w-2/3">
-                                            <h3 class="text-lg font-bold text-gray-800 mb-2"><?= htmlspecialchars($row['title']) ?></h3>
-                                            <p class="text-gray-600 mb-2 text-xs"><?= htmlspecialchars(substr($row['content'], 0, 100)) ?>...</p>
-                                            <div class="flex space-x-2">
-                                                <span class="px-3 py-1 bg-gray-500 text-white text-xs rounded-full"><?= htmlspecialchars($row['category']) ?></span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <?php
-                        }
-                        $i++;
-                    }
-                }
-                ?>
-            </div>
+<?php if ($featured !== []): $main = array_shift($featured); ?>
+    <section class="container-page grid gap-6 lg:grid-cols-2">
+        <?php $article = $main; $layout = 'vertical'; $excerptLength = 260; require __DIR__ . '/includes/partials/article-card.php'; ?>
+        <div class="grid gap-6">
+            <?php foreach ($featured as $article) {
+                $layout = 'horizontal';
+                $excerptLength = 90;
+                require __DIR__ . '/includes/partials/article-card.php';
+            } ?>
         </div>
+    </section>
+<?php endif; ?>
 
-        <!-- Popular Articles Section -->
-        <section class="py-8 bg-white">
-            <div class="container mx-auto">
-                <div class="px-24">
-                    <h2 class="text-3xl font-bold text-gray-800 mb-4">Popular Articles</h2>
-                    <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
-                        <?php
-                        if ($popular_result && $popular_result->num_rows > 0) {
-                            while ($row = $popular_result->fetch_assoc()) {
-                                ?>
-                                <a href="detail.php?id=<?= $row['id'] ?>" class="block bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300">
-                                    <div>
-                                        <img src="data:image/jpeg;base64,<?= base64_encode($row['image']) ?>" 
-                                             alt="<?= htmlspecialchars($row['title']) ?>" 
-                                             class="w-full h-40 object-cover">
-                                        <div class="p-4">
-                                            <h3 class="text-lg font-bold text-gray-800 mb-2 hover:text-gray-600 transition-colors"><?= htmlspecialchars($row['title']) ?></h3>
-                                            <p class="text-sm text-gray-600 mb-2">Kategori: <?= htmlspecialchars($row['category']) ?></p>
-                                            <p class="text-xs text-gray-500">Views: <?= htmlspecialchars($row['view_count']) ?></p>
-                                        </div>
-                                    </div>
-                                </a>
-                                <?php
-                            }
-                        } else {
-                            echo '<p class="text-gray-600 text-center col-span-4">No popular articles available.</p>';
-                        }
-                        ?>
-                    </div>
-                </div>
-            </div>
-        </section>
+<?php if ($popular !== []): ?>
+    <section class="container-page mt-24">
+        <h2 class="text-3xl font-semibold tracking-tight">Popular articles</h2>
+        <div class="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            <?php foreach ($popular as $article) {
+                $layout = 'vertical';
+                $excerptLength = 0;
+                $showViews = true;
+                require __DIR__ . '/includes/partials/article-card.php';
+            }
+            $showViews = false; ?>
+        </div>
+    </section>
+<?php endif; ?>
 
-        <!-- Latest Articles Section -->
-        <section class="py-8 bg-white">
-            <div class="container mx-auto">
-                <div class="px-24">
-                    <h2 class="text-4xl font-bold text-gray-800 mb-2">Latest Article</h2>
-                    <p class="text-xl text-gray-500 mb-6">Discover new smart tips</p>
-
-                    <!-- Category Filter -->
-                    <div class="flex flex-wrap gap-2 mb-6">
-                        <?php while($cat = $category_result->fetch_assoc()): ?>
-                            <a href="?category=<?= urlencode($cat['category']) ?>" 
-                               class="px-4 py-2 rounded-full <?= ($selected_category == $cat['category']) ? 'bg-black text-white' : 'bg-white text-black' ?> 
-                                      hover:bg-black hover:text-white transition-colors">
-                                <?= htmlspecialchars($cat['category']) ?>
-                            </a>
-                        <?php endwhile; ?>
-                    </div>
-
-                    <!-- Search Bar -->
-                    <div class="relative max-w-md mb-8">
-                        <form action="" method="GET" class="flex items-center">
-                            <input type="text" 
-                                   name="search" 
-                                   placeholder="Search" 
-                                   value="<?= htmlspecialchars($search) ?>"
-                                   class="w-full px-4 py-2 rounded-full border focus:outline-none focus:border-gray-500">
-                            <button type="submit" class="absolute right-3 top-1/2 transform -translate-y-1/2">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                                </svg>
-                            </button>
-                        </form>
-                    </div>
-
-                    <!-- Latest Articles Grid -->
-                    <div class="grid grid-cols-1 gap-6">
-                        <?php if ($latest_result && $latest_result->num_rows > 0): ?>
-                            <?php while($row = $latest_result->fetch_assoc()): ?>
-                                <a href="detail.php?id=<?= $row['id'] ?>" class="block bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
-                                    <div class="flex">
-                                        <div class="w-1/3">
-                                            <img src="data:image/jpeg;base64,<?= base64_encode($row['image']) ?>" 
-                                                 alt="<?= htmlspecialchars($row['title']) ?>" 
-                                                 class="w-full h-48 object-cover">
-                                        </div>
-                                        <div class="w-2/3 p-6">
-                                            <h2 class="text-2xl font-bold text-gray-800 mb-3">
-                                                <?= htmlspecialchars($row['title']) ?>
-                                            </h2>
-                                            <p class="text-gray-600 mb-4">
-                                                <?= htmlspecialchars(substr($row['content'], 0, 200)) ?>...
-                                            </p>
-                                            <div class="flex gap-2">
-                                                <?php
-                                                $categories = explode(',', $row['category']);
-                                                foreach($categories as $cat): ?>
-                                                    <span class="px-3 py-1 bg-black text-white text-sm rounded-full">
-                                                        <?= htmlspecialchars(trim($cat)) ?>
-                                                    </span>
-                                                <?php endforeach; ?>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            <?php endwhile; ?>
-                        <?php else: ?>
-                            <div class="text-center py-8">
-                                <p class="text-gray-600">No articles found.</p>
-                            </div>
-                        <?php endif; ?>
-                    </div>
-                </div>
-            </div>
-        </section>
+<section id="latest" class="container-page mt-24 scroll-mt-20">
+    <div class="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+        <div>
+            <h2 class="text-3xl font-semibold tracking-tight">Latest articles</h2>
+            <p class="mt-1 text-neutral-500">Discover new smart tips</p>
+        </div>
+        <form action="<?= url('blog.php') ?>#latest" method="GET" class="relative w-full md:w-80">
+            <?php if ($selected !== null): ?><input type="hidden" name="category" value="<?= e($selected) ?>"><?php endif; ?>
+            <input type="search" name="search" value="<?= e($search) ?>" placeholder="Search articles" class="input rounded-full pr-11">
+            <button class="absolute right-3 top-1/2 -translate-y-1/2 text-neutral-400 hover:text-neutral-900" aria-label="Search">
+                <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5-5m2-5a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z"/></svg>
+            </button>
+        </form>
     </div>
 
-    <?php include('includes/footer.php'); ?>
-    
-    <?php $conn->close(); ?>
-</body>
-</html>
+    <div class="mt-6 flex flex-wrap gap-2">
+        <a href="<?= $filterUrl(null) ?>" class="pill <?= $selected === null ? 'pill-active' : 'pill-idle' ?>">All</a>
+        <?php foreach ($categories as $category): ?>
+            <a href="<?= $filterUrl($category) ?>" class="pill <?= $selected === $category ? 'pill-active' : 'pill-idle' ?>"><?= e($category) ?></a>
+        <?php endforeach; ?>
+    </div>
+
+    <div class="mt-8 grid gap-6">
+        <?php if ($latest !== []): ?>
+            <?php foreach ($latest as $article) {
+                $layout = 'horizontal';
+                $excerptLength = 220;
+                require __DIR__ . '/includes/partials/article-card.php';
+            } ?>
+        <?php else: ?>
+            <?php $message = 'No articles found.'; require __DIR__ . '/includes/partials/empty-state.php'; ?>
+        <?php endif; ?>
+    </div>
+</section>
+
+<?php require __DIR__ . '/includes/layout/footer.php'; ?>
